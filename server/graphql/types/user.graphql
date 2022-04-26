@@ -1,0 +1,26 @@
+type Query {
+	user(id: ID!): User!
+	users: [User!]!
+}
+
+type User {
+	id: ID!
+	username: String!
+	createdAt: String!
+	snaps: [Snap!]!
+}
+
+type Mutation {
+	createUser(data: CreateUserInput): Token
+	signIn(data: SignInUserInput): Token
+}
+
+input CreateUserInput {
+	username: String!
+	password: String!
+}
+
+input SignInUserInput {
+	username: String!
+	password: String!
+}
